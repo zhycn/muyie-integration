@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>muyie-integration-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>MuYie Integration Parent</name>
+    <url>https://github.com/zhycn/muyie-integration/</url>
+
+    <parent>
+        <groupId>com.github.zhycn</groupId>
+        <artifactId>muyie-dependencies</artifactId>
+        <version>1.0.5</version>
+        <relativePath />
+    </parent>
+
+    <modules>
+        <module>muyie-integration-data-jpa</module>
+        <module>muyie-integration-data-mybatis</module>
+        <module>muyie-integration-data-redis</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>muyie-integration-data-jpa</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>muyie-integration-data-mybatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>muyie-integration-data-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
