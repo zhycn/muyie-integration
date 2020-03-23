@@ -12,11 +12,12 @@
     <parent>
         <groupId>com.github.zhycn</groupId>
         <artifactId>muyie-dependencies</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
         <relativePath />
     </parent>
 
     <modules>
+        <module>muyie-integration-apollo</module>
         <module>muyie-integration-data-jpa</module>
         <module>muyie-integration-data-mybatis</module>
         <module>muyie-integration-data-redis</module>
@@ -24,6 +25,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>muyie-integration-apollo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-data-jpa</artifactId>
