@@ -5,7 +5,7 @@ Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统�
 - https://github.com/antirez/redis
 - http://www.redis.cn/
 
-本项目是基本 spring-boot-starter-data-redis 模块搭建的，一是开箱即用，避免重复造轮子；二是增强基础功能，支持Spring Cache 和分布式锁的集成。
+本项目是基本 spring-boot-starter-data-redis 模块搭建的，一是开箱即用，避免重复造轮子；二是增强基础功能，支持 Spring Cache 和分布式锁的集成。
 
 ## 快速开始
 
@@ -15,7 +15,7 @@ Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统�
 <dependency>
     <groupId>com.github.zhycn</groupId>
     <artifactId>muyie-integration-data-redis</artifactId>
-    <version>${lastest.version}</version>
+    <version>latest version</version>
 </dependency>
 ```
 
@@ -57,5 +57,5 @@ spring.redis.timeout=1000
 
 - [RedisTempate](./docs/redis-tempate.md)
 - [Redisson](./docs/redisson.md)
-- [Redis分布式锁](./docs/redis-lock.md)
+- [Redis分布式锁的正确用法](./docs/redis-lock.md)
 - [Spring Cache](./docs/spring-cache.md)

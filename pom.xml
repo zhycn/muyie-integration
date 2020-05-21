@@ -16,12 +16,16 @@
         <relativePath />
     </parent>
 
+    <properties>
+        <muyie-integration.version>1.0.0-SNAPSHOT</muyie-integration.version>
+    </properties>
+
     <modules>
         <module>muyie-integration-apollo</module>
         <module>muyie-integration-data-jpa</module>
         <module>muyie-integration-data-mybatis</module>
         <module>muyie-integration-data-redis</module>
-		<module>muyie-integration-dubbo</module>
+        <module>muyie-integration-dubbo</module>
     </modules>
 
     <dependencyManagement>
@@ -29,27 +33,27 @@
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-apollo</artifactId>
-                <version>${project.version}</version>
+                <version>${muyie-integration.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-data-jpa</artifactId>
-                <version>${project.version}</version>
+                <version>${muyie-integration.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-data-mybatis</artifactId>
-                <version>${project.version}</version>
+                <version>${muyie-integration.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-data-redis</artifactId>
-                <version>${project.version}</version>
+                <version>${muyie-integration.version}</version>
             </dependency>
-			<dependency>
+            <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-dubbo</artifactId>
-                <version>${project.version}</version>
+                <version>${muyie-integration.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

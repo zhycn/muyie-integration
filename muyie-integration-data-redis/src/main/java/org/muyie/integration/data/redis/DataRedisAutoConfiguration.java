@@ -29,7 +29,7 @@ public class DataRedisAutoConfiguration {
   }
 
   /**
-   * 基于Spring Integration Redis实现的分布式锁
+   * 基于 Spring Integration Redis 实现的分布式锁
    * 
    * @param redisConnectionFactory 连接工厂对象
    * @return RedisLockRegistry 锁对象
@@ -47,7 +47,7 @@ public class DataRedisAutoConfiguration {
     RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(redisConnectionFactory);
 
-    // 自定义序列化配置
+    // 自定义序列化配置（FastJSON）
     StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
     FastJsonRedisSerializer<?> fastJsonRedisSerializer =
         new FastJsonRedisSerializer<>(Object.class);
