@@ -18,20 +18,20 @@ public class ApolloAutoConfiguration {
   private static final Logger log = LoggerFactory.getLogger(ApolloAutoConfiguration.class);
 
   /**
-   * 解决apollo无法动态刷新@ConfigurationProperties注解类的BUG
+   * 解决 Apollo 无法自动刷新 @ConfigurationProperties 注解类的BUG
    */
   @ApolloConfigChangeListener
   public void onChange(ConfigChangeEvent event) {
-    refresh(event);
+    refreshScope(event);
   }
 
-  private void refresh(ConfigChangeEvent event) {
+  private void refreshScope(ConfigChangeEvent event) {
     event.changedKeys().forEach(key -> {
-      ConfigChange change = event.getChange(key);
-      log.info("Apollo change - {}", change.toString());
+      ConfigChange configChange = event.getChange(key);
+      log.info("Apollo ConfigChange - {}", configChange);
     });
 
-    // 更新相应的bean的属性值，主要是存在@ConfigurationProperties注解的bean
+    // 更新相应的 Bean 的属性值，主要是存在 @ConfigurationProperties 注解的 Bean
     SpringContextHolder.getApplicationContext()
         .publishEvent(new EnvironmentChangeEvent(event.changedKeys()));
   }
