@@ -28,7 +28,7 @@ public class ApolloAutoConfiguration {
   private void refreshScope(ConfigChangeEvent event) {
     event.changedKeys().forEach(key -> {
       ConfigChange configChange = event.getChange(key);
-      log.info("Apollo ConfigChange - {}", configChange);
+      log.info("Apollo ConfigChangeEvent - {}", configChange);
     });
 
     // 更新相应的 Bean 的属性值，主要是存在 @ConfigurationProperties 注解的 Bean

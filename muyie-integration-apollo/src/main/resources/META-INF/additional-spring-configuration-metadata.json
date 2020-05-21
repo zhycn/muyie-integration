@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "apollo.meta",
+    "type": "java.lang.String",
+    "description": "A description for 'apollo.meta'"
+  },
+  {
+    "name": "app.id",
+    "type": "java.lang.String",
+    "description": "A description for 'app.id'"
+  },
+  {
+    "name": "apollo.bootstrap.namespaces",
+    "type": "java.lang.String",
+    "description": "A description for 'apollo.bootstrap.namespaces'"
+  },
+  {
+    "name": "apollo.bootstrap.eagerLoad.enabled",
+    "type": "java.lang.Boolean",
+    "description": "A description for 'apollo.bootstrap.eagerLoad.enabled'"
+  },
+  {
+    "name": "apollo.profile.actived",
+    "type": "java.lang.String",
+    "description": "A description for 'apollo.profile.actived'"
+  },
+  {
+    "name": "apollo.bootstrap.enabled",
+    "type": "java.lang.Boolean",
+    "description": "A description for 'apollo.bootstrap.enabled'"
+  },
+  {
+    "name": "apollo.bootstrap.eager-load.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'apollo.bootstrap.eager-load.enabled'"
+  }
+]}

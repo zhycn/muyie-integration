@@ -21,7 +21,16 @@ https://github.com/ctripcorp/apollo
 在 Spring Boot 中集成使用很简单，只需要在 application.properties/bootstrap.properties 中按照如下样例配置即可：
 
 ```
-# 开始 Apollo 配置
+# 指定 app.id
+app.id=100004458
+
+# 指定配置服务器地址
+apollo.meta=http://localhost:8080
+
+# 指定配置环境，忽略大小写
+apollo.profile.actived=dev
+
+# 开启 Apollo 配置
 apollo.bootstrap.enabled=true
 
 # 将 Apollo 配置加载提到初始化日志系统之前（可选）
@@ -29,15 +38,6 @@ apollo.bootstrap.eagerLoad.enabled=true
 
 # 指定加载的命名空间，默认会加载 application
 apollo.bootstrap.namespaces=application,FX.apollo,application.yml
-
-# 指定配置环境，忽略大小写
-apollo.profile.actived=dev
-
-# 指定 app.id
-app.id=100004458
-
-# 指定配置服务器地址
-apollo.meta=http://localhost:8080
 ```
 
 更多配置请参考官方文档：[Java 客户端使用指南](https://github.com/ctripcorp/apollo/wiki/Java%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
@@ -165,7 +165,7 @@ public class ApolloAutoConfiguration {
   private void refreshScope(ConfigChangeEvent event) {
     event.changedKeys().forEach(key -> {
       ConfigChange configChange = event.getChange(key);
-      log.info("Apollo ConfigChange - {}", configChange);
+      log.info("Apollo ConfigChangeEvent - {}", configChange);
     });
 
     // 更新相应的 Bean 的属性值，主要是存在 @ConfigurationProperties 注解的 Bean
