@@ -18,7 +18,7 @@ public class ApolloAutoConfiguration {
   private static final Logger log = LoggerFactory.getLogger(ApolloAutoConfiguration.class);
 
   /**
-   * 解决apollo无法动态刷新ConfigurationProperties注解的类
+   * 解决apollo无法动态刷新@ConfigurationProperties注解类的BUG
    */
   @ApolloConfigChangeListener
   public void onChange(ConfigChangeEvent event) {
