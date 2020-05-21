@@ -55,7 +55,5 @@ spring.redis.timeout=1000
 
 ## 使用向导
 
-- [RedisTempate](./docs/redis-tempate.md)
-- [Redisson](./docs/redisson.md)
+- [Redisson](https://github.com/redisson/redisson)
 - [Redis分布式锁的正确用法](./docs/redis-lock.md)
-- [Spring Cache](./docs/spring-cache.md)
