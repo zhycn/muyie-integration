@@ -14,7 +14,7 @@ https://github.com/ctripcorp/apollo
   <dependency>
     <groupId>com.github.zhycn</groupId>
     <artifactId>muyie-integration-apollo</artifactId>
-    <version>latest version</version>
+    <version>{latest version}</version>
   </dependency>
 ```
 

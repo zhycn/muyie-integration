@@ -50,7 +50,7 @@ public class ApolloAutoConfiguration
     String profile = environment.getProperty(APOLLO_PROFILE_ACTIVED_KEY);
     if (StringUtils.isNotBlank(profile)) {
       System.setProperty("env", profile);
-      log.info("Apollo actived profle is '{}'", System.getProperty("env"));
+      log.info("Apollo actived profile is '{}'", System.getProperty("env"));
     }
   }
 
