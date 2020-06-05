@@ -163,7 +163,7 @@ spring:
 ```
 @GetMapping("test")
 public void test() throws InterruptedException {
-  Lock lock = redisLockRegistry.obtain("lock");
+  RLock lock = redissonClient.getLock("lock");
   try {
     // 尝试等待3秒，如果没有拿到锁就抛出异常
     boolean b1 = lock.tryLock(3, TimeUnit.SECONDS);
