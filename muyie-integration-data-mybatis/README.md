@@ -6,7 +6,7 @@ https://mp.baomidou.com/
 
 ## 快速开始
 
-在你的 Spring Boot 项目中添加以下依赖：
+**1. 在你的 Spring Boot 项目中添加以下依赖：**
 
 ```
 <dependency>
@@ -26,7 +26,7 @@ https://mp.baomidou.com/
 </dependency>
 ```
 
-数据库连接池配置：
+**2. 数据库连接池配置：**
 
 ```
 ## Spring DataSource Configuration
@@ -49,9 +49,7 @@ spring.datasource.druid.keep-alive=true
 
 更多数据库连接池配置可参考：https://github.com/alibaba/druid/druid-spring-boot-starter
 
----
-
-MyBatis-Plus的属性配置：
+**3. MyBatis-Plus的属性配置：**
 
 ```
 ## MyBatis-Plus
@@ -72,10 +70,7 @@ mybatis-plus.configuration.default-executor-type=reuse
 
 MyBatis-Plus的更多配置可参考：https://mp.baomidou.com/config
 
----
-
-
-在你的 Spring Boot 项目中，开启 MyBatis-Plus 配置：
+**4. 开启 MyBatis-Plus 配置：**
 
 ```
 @Configuration

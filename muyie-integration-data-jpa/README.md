@@ -4,7 +4,7 @@
 
 ## 快速开始
 
-在你的 Spring Boot 项目中添加以下依赖：
+**1. 在你的 Spring Boot 项目中添加以下依赖：**
 
 ```
 <dependency>
@@ -24,7 +24,7 @@
 </dependency>
 ```
 
-数据库连接池配置：
+**2. 数据库连接池配置：**
 
 ```
 ## Spring DataSource Configuration
@@ -47,9 +47,7 @@ spring.datasource.druid.keep-alive=true
 
 更多数据库连接池配置可参考：https://github.com/alibaba/druid/druid-spring-boot-starter
 
----
-
-在你的 Spring Boot 项目中，开启 JPA 配置：
+**3. 开启 JPA 配置：**
 
 ```
 @Configuration
