@@ -104,3 +104,24 @@ public class AddressDTO implements Serializable {
 
 }
 ```
+
+## 服务提供者
+
+服务生产者使用@DubboService注解配置，能在生产者上配置的参数，应尽量在生产者上配置，以降低消费者的使用成本。
+
+```
+@DubboService(interfaceClass = HelloService.class, protocol = {"rest",
+    "dubbo"}, version = "1.0", retries = -1)
+public class HelloServiceImpl implements HelloService {
+
+}
+```
+
+## 服务消费者
+
+服务消费者使用@DubboReference注解配置。
+
+```
+@DubboReference(protocol = "rest", version = "1.0", check = false)
+private HelloService helloService;
+```
