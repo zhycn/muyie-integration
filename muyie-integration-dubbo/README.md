@@ -4,6 +4,7 @@ Apache Dubbo™ 是一款高性能Java RPC框架。
 
 http://dubbo.apache.org/zh-cn/index.html
 
+本项目已集成DUBBO配置，提供常用的dubbo和rest协议支持。
 
 ## 快速开始
 
@@ -17,21 +18,88 @@ http://dubbo.apache.org/zh-cn/index.html
 </dependency>
 ```
 
-2. 添加配置参数：
+**2. 添加服务提供者配置：**
 
 ```
 ## Dubbo 服务提供者配置
-dubbo.protocol.name = rest
-dubbo.protocol.port = 20081
+dubbo.application.name=dubbo-provider
+dubbo.registry.protocol=zookeeper
+dubbo.registry.address=zookeeper://10.177.84.73:2181?backup=10.177.84.74:2181,10.177.84.75:2181
+dubbo.registry.timeout=60000
+dubbo.consumer.timeout=10000
+dubbo.protocols.rest.name=rest
+dubbo.protocols.rest.server=netty
+dubbo.protocols.rest.port=28001
+dubbo.protocols.rest.contextpath=services
+dubbo.protocols.dubbo.name=dubbo
+dubbo.protocols.dubbo.port=28002
+```
 
-dubbo.protocol.server = netty
-dubbo.protocol.contextpath = services
-#当前服务/应用的名字
-dubbo.application.name = mfbp-tesseract
-#注册中心的协议和地址
-dubbo.registry.protocol = zookeeper
-dubbo.registry.address = zookeeper://10.177.84.73:2181?backup=10.177.84.74:2181
-#连接监控中心
-##dubbo.monitor.protocol = registry
-dubbo.consumer.timeout = 1000
+**3. 添加服务消费者配置：**
+
+```
+dubbo.application.name=dubbo-consumer
+dubbo.registry.protocol=zookeeper
+dubbo.registry.address=zookeeper://10.177.84.73:2181?backup=10.177.84.74:2181,10.177.84.75:2181
+dubbo.registry.timeout=60000
+dubbo.consumer.timeout=10000
+# 协议类型可以注解中指定
+dubbo.protocols.rest.name=rest
+dubbo.protocols.dubbo.name=dubbo
+```
+
+## 服务接口定义
+
+作为DUBBO服务，需要提供一个特殊的API包，供服务提供者和消费者使用。
+
+```
+public interface IHelloService {
+  String sayHello(String name);
+}
+```
+
+如果使用rest协议，则配置相应的注解：
+
+```
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+@Path("hello")
+@Consumes({MediaType.APPLICATION_JSON,MediaType.TEXT_XML})
+@Produces({"application/json;charset=UTF-8"})
+public interface IHelloService {
+
+    @GET
+    @Path("sayHello")
+    String sayHello(@QueryParam("name") String name);
+}
+```
+
+使用rest协议，需要添加注解依赖包：
+
+```
+<dependency>
+	<groupId>javax.ws.rs</groupId>
+	<artifactId>javax.ws.rs-api</artifactId>
+	<version>2.0</version>
+</dependency>
+```
+
+为了防止因接口参数变动，带来的序列化问题。以JSON为例，可以实体类上添加序列化注解：
+
+```
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+</dependency>
+```
+
+通过序列化注解来解决版本兼容性问题：
+
+```
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class AddressDTO implements Serializable {
+
+}
 ```
