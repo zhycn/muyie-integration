@@ -10,9 +10,9 @@ https://mp.baomidou.com/
 
 ```
 <dependency>
-    <groupId>com.github.zhycn</groupId>
-    <artifactId>muyie-integration-data-mybatis</artifactId>
-    <version>{latest version}</version>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>muyie-integration-data-mybatis</artifactId>
+  <version>{latest version}</version>
 </dependency>
 ```
 
@@ -20,9 +20,9 @@ https://mp.baomidou.com/
 
 ```
 <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <scope>runtime</scope>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <scope>runtime</scope>
 </dependency>
 ```
 

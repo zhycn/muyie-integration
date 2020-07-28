@@ -11,11 +11,11 @@ https://github.com/ctripcorp/apollo
 在你的 Spring Boot 项目中使用 Apollo Client 可添加以下 Maven 依赖：
 
 ```
-  <dependency>
-    <groupId>com.github.zhycn</groupId>
-    <artifactId>muyie-integration-apollo</artifactId>
-    <version>{latest version}</version>
-  </dependency>
+<dependency>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>muyie-integration-apollo</artifactId>
+  <version>{latest version}</version>
+</dependency>
 ```
 
 在 Spring Boot 中集成使用很简单，只需要在 application.properties/bootstrap.properties 中按照如下样例配置即可：

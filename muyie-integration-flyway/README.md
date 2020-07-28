@@ -37,13 +37,15 @@ Flyway 提供命令行工具，常用的命令包括：
 </dependency>
 ```
 
-**第2步：设定 flyway 属性**
+**第2步：设置 flyway 属性**
 
 ```
 # flyway 的 clean 命令会删除指定 schema 下的所有 table，杀伤力太大了，应该禁掉
+# 默认值：false
 spring.flyway.cleanDisabled=true
 
 # 启用或禁用 flyway
+# 默认值：true
 spring.flyway.enabled=true
 
 # 设定 SQL 脚本的目录，多个路径使用逗号分隔，比如取值为：classpath:db/migration,filesystem:/sql-migrations
@@ -52,19 +54,19 @@ spring.flyway.locations=classpath:db/migration
 
 # 如果指定 schema 包含了其他表，但没有 flyway_schema_history 表的话，在执行 flyway migrate 命令之前，必须先执行 flyway baseline 命令。
 # 设置 spring.flyway.baseline-on-migrate 为 true 后，flyway 将在需要 baseline 的时候，自动执行一次 baseline。 
+# 默认值：false
 spring.flyway.baselineOnMigrate=true
 
 # 指定 baseline 的版本号，缺省值为 1，低于该版本号的 SQL 文件，migrate 的时候被忽略
+# 默认值：1
 # spring.flyway.baselineVersion=1 
 
 # Encoding of SQL migrations (default: UTF-8)
 # spring.flyway.encoding=UTF-8
 
 # 设定 flyway 的 metadata 表名，缺省为 flyway_schema_history
+# 默认值：flyway_schema_history
 # spring.flyway.table=flyway_schema_history_myapp
-
-# 开发环境最好开启 outOfOrder，生产环境关闭 outOfOrder
-# spring.flyway.outOfOrder=true
 ```
 
 **第3步：创建SQL版本管理目录**
@@ -73,8 +75,9 @@ spring.flyway.baselineOnMigrate=true
 
 SQL脚本的命名规范：V+<版本号>+__+<脚本用途说明>.sql。版本号可以是点号或下划线分割的数字或直接用数字，并且数字必须是递增。
 
-- 已经交付的版本，不要手动删除或变更 flyway 无数据表中的任何记录信息。
+- 已经交付的版本，不要手动删除或变更 flyway 和数据表中的任何记录信息。
 - 使用 Flyway 时，要重点注意SQL的正确性，避免执行异常。
+- 使用 Flyway 时，需要较大的数据库操作权限，尤其要注意风险。
 
 ## 参考
 

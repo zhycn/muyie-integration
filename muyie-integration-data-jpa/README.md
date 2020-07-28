@@ -8,9 +8,9 @@
 
 ```
 <dependency>
-    <groupId>com.github.zhycn</groupId>
-    <artifactId>muyie-integration-data-jpa</artifactId>
-    <version>{latest version}</version>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>muyie-integration-data-jpa</artifactId>
+  <version>{latest version}</version>
 </dependency>
 ```
 
@@ -18,9 +18,9 @@
 
 ```
 <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <scope>runtime</scope>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <scope>runtime</scope>
 </dependency>
 ```
 
@@ -55,6 +55,21 @@ spring.datasource.druid.keep-alive=true
 @EnableJpaRepositories(basePackages = "") // 指定仓库包名
 @EntityScan(basePackages = "") // 指定实体类包名
 public class AppConfiguration {
+
+}
+```
+
+另外，关于JPA提供的@EnableJpaAuditing，在muyie-framework中有一个默认实现，开发者可以自定义实现：
+
+```
+@Configuration(JpaAutoConfiguration.AUDITOR_AWARE_REF) // 必须指定类名
+public class SpringSecurityAuditorAware implements AuditorAware<String> {
+
+  @Override
+  public Optional<String> getCurrentAuditor() {
+    // 通过自定义方式，获取用户名
+    return Optional.of(AuthoritiesConstants.SYSTEM_USER);
+  }
 
 }
 ```

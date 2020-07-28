@@ -12,9 +12,9 @@ http://dubbo.apache.org/zh-cn/index.html
 
 ```
 <dependency>
-    <groupId>com.github.zhycn</groupId>
-    <artifactId>muyie-integration-dubbo</artifactId>
-    <version>{latest version}</version>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>muyie-integration-dubbo</artifactId>
+  <version>{latest version}</version>
 </dependency>
 ```
 
@@ -50,7 +50,7 @@ dubbo.protocols.dubbo.name=dubbo
 
 ## 服务接口定义
 
-作为DUBBO服务，需要提供一个特殊的API包，供服务提供者和消费者使用。
+作为DUBBO服务，需要提供一个抽象的API包，供服务提供者和消费者使用。
 
 ```
 public interface IHelloService {
@@ -63,33 +63,34 @@ public interface IHelloService {
 ```
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+
 @Path("hello")
 @Consumes({MediaType.APPLICATION_JSON,MediaType.TEXT_XML})
 @Produces({"application/json;charset=UTF-8"})
 public interface IHelloService {
 
-    @GET
-    @Path("sayHello")
-    String sayHello(@QueryParam("name") String name);
+  @GET
+  @Path("sayHello")
+  String sayHello(@QueryParam("name") String name);
 }
 ```
 
-使用rest协议，需要添加注解依赖包：
+使用rest协议时，需要添加注解依赖包：
 
 ```
 <dependency>
-	<groupId>javax.ws.rs</groupId>
-	<artifactId>javax.ws.rs-api</artifactId>
-	<version>2.0</version>
+  <groupId>javax.ws.rs</groupId>
+  <artifactId>javax.ws.rs-api</artifactId>
+  <version>2.0</version>
 </dependency>
 ```
 
-为了防止因接口参数变动，带来的序列化问题。以JSON为例，可以实体类上添加序列化注解：
+注意：为了防止因接口参数变动，带来的序列化问题。以JSON为例，可以实体类上添加序列化注解及依赖包：
 
 ```
 <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-core</artifactId>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-core</artifactId>
 </dependency>
 ```
 

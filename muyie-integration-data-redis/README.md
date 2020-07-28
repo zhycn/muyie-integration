@@ -14,9 +14,9 @@ Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统�
 
 ```
 <dependency>
-    <groupId>com.github.zhycn</groupId>
-    <artifactId>muyie-integration-data-redis</artifactId>
-    <version>{latest version}</version>
+  <groupId>com.github.zhycn</groupId>
+  <artifactId>muyie-integration-data-redis</artifactId>
+  <version>{latest version}</version>
 </dependency>
 ```
 
