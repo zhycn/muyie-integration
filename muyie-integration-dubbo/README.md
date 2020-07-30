@@ -48,6 +48,16 @@ dubbo.protocols.rest.name=rest
 dubbo.protocols.dubbo.name=dubbo
 ```
 
+## 配置
+
+```
+@SpringBootApplication
+@EnableDubbo(scanBasePackages = "com.xxx") // 配置扫描包
+public class Application {
+
+}
+```
+
 ## 服务接口定义
 
 作为DUBBO服务，需要提供一个抽象的API包，供服务提供者和消费者使用。
