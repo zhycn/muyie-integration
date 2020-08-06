@@ -3,21 +3,20 @@
 Feign是一种声明式、模板化的HTTP客户端。在Spring Cloud中使用Feign，可以做到使用HTTP请求访问远程服务，就像调用本地方法一样，开发者完全感知不到这是在调用远程方法，更感知不到在访问HTTP请求。使用Feign只需创建一个接口并添加对应的注解，例如：@FeignClient注解。Feign有可插拔的注解，包括Feign注解和JAX-RS注解。Feign也支持编码器和解码器，Spring Cloud Open Feign是对Feign进行增强并支持Spring MVC注解，可以像Spring Web一样使用HttpMessageConverters等。
 
 - https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/
-- https://www.jdon.com/50638
 
 **主要功能：**
 
-1.可插拔的注解支持，包括Feign注解和JAX-RS注解。
-2.支持可插拔的HTTP编码器和解码器（Gson，Jackson，Sax，JAXB，JAX-RS，SOAP）。
-3.支持Hystrix和它的Fallback。
-4.支持Ribbon的负载均衡。
-5.支持HTTP请求和响应的压缩。
-6.灵活的配置：基于 name 粒度进行配置。
-7.支持多种客户端：JDK URLConnection、apache httpclient、okhttp，ribbon）
-8.支持日志
-9.支持错误重试
-10.url支持占位符
-11.可以不依赖注册中心独立运行
+1. 可插拔的注解支持，包括Feign注解和JAX-RS注解。
+2. 支持可插拔的HTTP编码器和解码器（Gson，Jackson，Sax，JAXB，JAX-RS，SOAP）。
+3. 支持Hystrix和它的Fallback。
+4. 支持Ribbon的负载均衡。
+5. 支持HTTP请求和响应的压缩。
+6. 灵活的配置：基于 name 粒度进行配置。
+7. 支持多种客户端：JDK URLConnection、apache httpclient、okhttp，ribbon）
+8. 支持日志
+9. 支持错误重试
+10. url支持占位符
+11. 可以不依赖注册中心独立运行
 
 ## 快速开始
 
@@ -42,7 +41,7 @@ Feign是一种声明式、模板化的HTTP客户端。在Spring Cloud中使用Fe
 
 **2. 在启动类上添加@EnableFeignClients注解**
 
-@EnableFeignClients声明该项目是Feign客户端，并扫描对应的feign client。
+@EnableFeignClients声明该项目是Feign客户端，并扫描对应的FeignClient。
 
 ```
 @SpringBootApplication
@@ -115,9 +114,9 @@ public class TestService {
 }
 ```
 
-## 使用场景详解
+## 使用详解
 
-Feign的基本用法非常简单，不同使用场景仍需要做一些简单的配置。
+Feign的基本用法非常简单，但不同使用场景仍需要做一些配置。
 
 **1. 简单的HTTP调用**
 
@@ -164,17 +163,15 @@ ReturnResult<ImageVO> uploadFile(@RequestPart(value = "file") MultipartFile file
     @RequestParam(value = "bucketName", required = false) String bucketName);
 ```
 
-**3. 使用Apache的HttpClient连接池**
+**3. 使用HttpClient连接池**
 
-http 的背景原理
+_http 的背景原理_
 
-a. 两台服务器建立 http 连接的过程是很复杂的一个过程，涉及到多个数据包的交换，并
-且也很耗时间。
+a. 两台服务器建立 http 连接的过程是很复杂的一个过程，涉及到多个数据包的交换，并且也很耗时间。
 
-b. Http 连接需要的 3 次握手 4 次分手开销很大，这一开销对于大量的比较小的 http 消
-息来说更大。
+b. Http 连接需要的 3 次握手 4 次分手开销很大，这一开销对于大量的比较小的 http 消息来说更大。
 
-优化解决方案
+_优化解决方案_
 
 a. 如果我们直接采用 http 连接池，节约了大量的 3 次握手 4 次分手；这样能大大提升吞
 吐率。
@@ -192,9 +189,18 @@ d. HttpClient 相比传统 JDK 自带的 HttpURLConnection，它封装了访问 
 高并发大量的请求网络的时候，还是用连接池提升吞吐量。
 
 ```
-## httpclient的默认配置如下：
-## 一般情况下，使用默认配置即可，特殊场景下，连接超时时间可以设置大一点。
+## 使用Apache HttpClient（默认）
 feign.httpclient.enabled=true
+
+## 使用OkHttp
+## 底层代码实现参考：OkHttpFeignLoadBalancerConfiguration 和 OkHttpFeignConfiguration。
+feign.httpclient.enabled=true
+
+## 以上二选一，两者都为false则使用JDK自带的Http连接。
+
+## httpclient连接池的默认配置如下：
+## 一般情况下，使用默认配置即可，特殊场景下，连接超时时间可以设置大一点。
+## Apache HttpClient 和 OkHttp 都支持以下连接池配置。
 feign.httpclient.connection-timeout=2000
 feign.httpclient.connection-timer-repeat=3000
 feign.httpclient.disable-ssl-validation=false
@@ -204,18 +210,6 @@ feign.httpclient.max-connections-per-route=50
 feign.httpclient.time-to-live=900
 feign.httpclient.time-to-live-unit=seconds
 ```
-
-如果想换成OkHttp，设置如下：
-
-```
-# 禁用httpclient
-feign.httpclient.enabled=false
-
-# 启用okhttp
-feign.okhttp.enabled=true
-```
-
-底层代码实现参考：OkHttpFeignLoadBalancerConfiguration 和 OkHttpFeignConfiguration。
 
 **4. 日志配置**
 
@@ -346,7 +340,7 @@ public interface MyFeignClient {
 
 **7. 配合负载均衡使用**
 
-如果项目中使用了Spring Cloud注册中心和Ribbon，则需要注意@FeignClient的配置参数。原先使用serviceId来发现服务，后改用name或value来代替了serviceId作用服务发现，其他用法不变。
+如果项目中使用了Spring Cloud注册中心和Ribbon，则需要注意@FeignClient的配置参数。原先使用serviceId来发现服务，现已改用name或value来代替了serviceId作用服务发现，其他不变。
 
 假如要配置两个相同name的服务，使用@FeignClient的方式就办不到，需要通过Feign Builder API手动创建接口代理，而不是通过注解：
 
@@ -470,7 +464,7 @@ public Decoder feignDecoder() {
 path属性定义当前@FeignClient的统一前缀，这样方便在该@FeignClient中的@RequestMapping中书写value值。假如存在一系列的用户管理服务，如下：
 
 ```
-/app/service/userManager/get,
+/app/service/userManager/get
 /app/service/userManager/insert
 /app/service/userManager/update
 /app/service/userManager/delete
