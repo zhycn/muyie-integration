@@ -66,6 +66,7 @@
         <module>muyie-integration-data-redis</module>
         <module>muyie-integration-dubbo</module>
         <module>muyie-integration-flyway</module>
+		<module>muyie-integration-openfeign</module>
     </modules>
 
     <dependencyManagement>
@@ -98,6 +99,11 @@
             <dependency>
                 <groupId>com.github.zhycn</groupId>
                 <artifactId>muyie-integration-flyway</artifactId>
+                <version>${muyie-integration.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.github.zhycn</groupId>
+                <artifactId>muyie-integration-openfeign</artifactId>
                 <version>${muyie-integration.version}</version>
             </dependency>
         </dependencies>
