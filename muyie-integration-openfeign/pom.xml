@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>muyie-integration-apollo</artifactId>
-    <name>MuYie Integration Apollo</name>
+    <artifactId>muyie-integration-openfeign</artifactId>
+    <name>MuYie Integration OpenFeign</name>
 
     <parent>
         <groupId>com.github.zhycn</groupId>
@@ -19,12 +19,8 @@
             <artifactId>muyie-framework</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.ctrip.framework.apollo</groupId>
-            <artifactId>apollo-client</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 
