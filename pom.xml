@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>muyie-integration-bom</artifactId>
-    <version>1.0.0</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
     <name>MuYie Integration Parent</name>
     <url>https://github.com/zhycn/muyie-integration/</url>
@@ -40,7 +40,7 @@
     </developers>
 
     <properties>
-        <muyie-integration.version>1.0.0</muyie-integration.version>
+        <muyie-integration.version>0.1.0</muyie-integration.version>
     </properties>
 
     <scm>
