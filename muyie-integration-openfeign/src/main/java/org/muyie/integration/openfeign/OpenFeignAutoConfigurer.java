@@ -11,7 +11,7 @@ import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
 
 @Configuration
-public class OpenFeignAutoConfigure {
+public class OpenFeignAutoConfigurer {
 
   @Bean
   @ConditionalOnMissingBean

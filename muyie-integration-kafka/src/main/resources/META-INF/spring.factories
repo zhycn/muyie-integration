@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.kafka.KafkaAutoConfigure
+org.muyie.integration.kafka.KafkaAutoConfigurer

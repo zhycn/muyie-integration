@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.apollo.ApolloAutoConfigure
+org.muyie.integration.apollo.ApolloAutoConfigurer

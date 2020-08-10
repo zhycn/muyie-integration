@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.flyway.FlywayAutoConfigure
+org.muyie.integration.flyway.FlywayAutoConfigurer

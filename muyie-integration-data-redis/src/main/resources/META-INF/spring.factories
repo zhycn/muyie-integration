@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.data.redis.DataRedisAutoConfigure
+org.muyie.integration.data.redis.DataRedisAutoConfigurer
