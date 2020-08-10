@@ -17,11 +17,11 @@ import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 
 @Configuration
 @EnableApolloConfig
-public class ApolloAutoConfiguration
+public class ApolloAutoConfigure
     implements
       ApplicationListener<ApplicationEnvironmentPreparedEvent> {
 
-  private static final Logger log = LoggerFactory.getLogger(ApolloAutoConfiguration.class);
+  private static final Logger log = LoggerFactory.getLogger(ApolloAutoConfigure.class);
 
   private static final String APOLLO_PROFILE_ACTIVED_KEY = "apollo.profile.actived";
 
