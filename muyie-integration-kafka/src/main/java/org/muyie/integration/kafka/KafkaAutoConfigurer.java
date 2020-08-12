@@ -1,8 +1,8 @@
-package org.muyie.integration.data.jpa;
+package org.muyie.integration.kafka;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DataJpaAutoConfiguration {
+public class KafkaAutoConfigurer {
 
 }

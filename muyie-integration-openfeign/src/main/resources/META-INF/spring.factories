@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.openfeign.OpenFeignAutoConfiguration
+org.muyie.integration.openfeign.OpenFeignAutoConfigurer

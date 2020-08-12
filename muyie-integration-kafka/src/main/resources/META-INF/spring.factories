@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.dubbo.DubboAutoConfigurer
+org.muyie.integration.kafka.KafkaAutoConfigurer

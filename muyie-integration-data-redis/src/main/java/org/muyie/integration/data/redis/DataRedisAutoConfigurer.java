@@ -20,11 +20,11 @@ import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 
 @Configuration
 @EnableCaching
-public class DataRedisAutoConfiguration {
+public class DataRedisAutoConfigurer {
 
   private final RedisConnectionFactory redisConnectionFactory;
 
-  public DataRedisAutoConfiguration(RedisConnectionFactory redisConnectionFactory) {
+  public DataRedisAutoConfigurer(RedisConnectionFactory redisConnectionFactory) {
     this.redisConnectionFactory = redisConnectionFactory;
   }
 

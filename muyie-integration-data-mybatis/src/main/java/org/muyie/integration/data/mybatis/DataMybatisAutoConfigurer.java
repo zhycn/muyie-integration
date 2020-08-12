@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
 @Configuration
-public class DataMybatisAutoConfiguration {
+public class DataMybatisAutoConfigurer {
 
   @Bean
   @ConditionalOnMissingBean

@@ -1,8 +1,8 @@
-package org.muyie.integration.flyway;
+package org.muyie.integration.dubbo;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class FlywayAutoConfiguration {
+public class DubboAutoConfigurer {
 
 }

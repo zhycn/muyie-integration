@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.muyie.integration.data.mybatis.DataMybatisAutoConfiguration
+org.muyie.integration.data.mybatis.DataMybatisAutoConfigurer
